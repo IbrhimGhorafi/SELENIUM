@@ -18,7 +18,7 @@ public class PageObjectInitialization {
     private final ChooseCountryAndCurrencyForShoppingPopup chooseCountryAndCurrencyForShoppingPopup;
     private final CookiesPopup cookiesPopup;
     private final LoginPopup loginPopup;
-
+    private final Footer footerNewsLetter;
 
 
     public PageObjectInitialization(WebDriver driver) {
@@ -30,6 +30,8 @@ public class PageObjectInitialization {
                 .initElements(driver, ChooseCountryAndCurrencyForShoppingPopup.class);
         this.cookiesPopup = PageFactory.initElements(driver, CookiesPopup.class);
         this.loginPopup = PageFactory.initElements(driver, LoginPopup.class);
+        this.footerNewsLetter = PageFactory.initElements(driver, Footer.class);
     }
 
 }
+

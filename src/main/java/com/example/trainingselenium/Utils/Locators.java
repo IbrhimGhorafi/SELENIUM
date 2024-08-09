@@ -23,10 +23,9 @@ public class Locators {
     public static final String FORGET_PASSWORD_LINK = "//form//span[contains(text(),'Forgotten the password?')]";
     public static final String EMAIL_RESET_PASSWORD_INPUT = "//div[contains(@class,'forgot-password-wrapper')]//input[contains(@name,'email')]";
     public static final String RESET_PASSWORD_BUTTON = "//div[contains(@class,'forgot-password-wrapper')]//button[contains(@aria-label,'Reset Password')]";
-    public static final String EMAIL_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'email')]";
-    public static final String PASSWORD_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'password')]";
-    public static final String LOGIN_BUTTON = "//div[contains(@class,'login-form')]//button[contains(@aria-label,'Log in to your Account')]";
-    public static final String SUCCESS_LOGGED_MESSAGE_POPUP = "//div[contains(text(),'You are logged in!')]";
+//    public static final String EMAIL_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'email')]";
+//    public static final String PASSWORD_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'password')]";
+//    public static final String LOGIN_BUTTON = "//div[contains(@class,'login-form')]//button[contains(@aria-label,'Log in to your Account')]";
     public static final String LINK_DETAILS_USER_PAGE = "//span[contains(@class,'account-menu-section')]//a[@href='/my-account']";
     public static final String MESSAGE_RECEIVED_EMAIL_INSTRUCTION_RESET_PASSWORD = "//div[@class='forgot-password-wrapper']//p[contains(text(),'Check your inbox and follow the link')]";
     public static final String BACK_TO_LOGIN_BUTTON = "//div[contains(@class,'forgot-password-wrapper')]//button[contains(@aria-label,'Back to login')]";
@@ -37,4 +36,17 @@ public class Locators {
 
     public static final String ICON_WISH_LIST_IN_HEADER = "//nav[@id='customer-navigation']//img[contains(@src,'nav-icons_wishlist')]";
     public static final String ICON_BAG_IN_HEADER = "//button[@id='basket-btn']";
+
+    public static final String EMAIL_LOGING_INPUT = "//div[contains(@class,'login-form')]//input[@name='email']";
+    public static final String PASSWORD_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[@type='password']";
+    public static final String LOGIN_BUTTON = "//div[contains(@class,'login-form')]//button[@type='submit']";
+    public static final String POST_LOGIN_POPUP_OK_BUTTON = "//button[contains(@id,'toast-ok-button')]";
+    public static final String SUCCESS_LOGGED_MESSAGE_POPUP = "//div[contains(text(),'You are logged in!')]";
+    public static final String POST_LOGIN_POPUP = "//div[contains(@class,'p-toast-message-content')]";
+
+    public static final String NEWSLETTER_EMAIL_INPUT = "//input[contains(@id,'subscription-email')]";
+    public static final String NEWSLETTER_COUNTRY_DROPDOWN = "//select[contains(@name,'country')]";
+    public static final String NEWSLETTER_GENERAL_INTEREST = "//select[contains(@name,'general_interest')]";
+    public static final String NEWSLETTER_PRODUCT_INTEREST = "//select[contains(@name,'product_interest')]";
+    public static final String NEWSLETTER_SIGNUP_BUTTON = "//button[contains(@aria-label,'Sign Up')]";
 }

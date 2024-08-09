@@ -22,8 +22,6 @@ public class WebDriverConfiguration {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            log.warn("===============================================================");
-            log.info("Getting driver");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         }
