@@ -1,6 +1,7 @@
 package com.example.trainingselenium.Pages;
 
 import com.example.trainingselenium.Utils.Locators;
+import dev.failsafe.internal.util.Assert;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -29,14 +30,14 @@ public class LoginPopup {
     @FindBy(how = How.XPATH, using = Locators.RESET_PASSWORD_BUTTON)
     private WebElement resetPasswordButton;
 
-    @FindBy(how = How.XPATH, using = Locators.EMAIL_LOGIN_INPUT)
-    private WebElement emailLoginInput;
+//    @FindBy(how = How.XPATH, using = Locators.EMAIL_LOGIN_INPUT)
+//    private WebElement emailLoginInput;
 
-    @FindBy(how = How.XPATH, using = Locators.PASSWORD_LOGIN_INPUT)
-    private WebElement passwordLoginInput;
+//    @FindBy(how = How.XPATH, using = Locators.PASSWORD_LOGIN_INPUT)
+//    private WebElement passwordLoginInput;
 
-    @FindBy(how = How.XPATH, using = Locators.LOGIN_BUTTON)
-    private WebElement loginButton;
+//    @FindBy(how = How.XPATH, using = Locators.LOGIN_BUTTON)
+//    private WebElement loginButton;
 
     @FindBy(how = How.XPATH, using = Locators.SUCCESS_LOGGED_MESSAGE_POPUP)
     private WebElement messageSuccessLoggedIn;
@@ -46,6 +47,18 @@ public class LoginPopup {
 
     @FindBy(how = How.XPATH,using = Locators.BACK_TO_LOGIN_BUTTON)
     private WebElement backToLoginButton;
+
+    @FindBy(how = How.XPATH, using = Locators.EMAIL_LOGING_INPUT)
+    private WebElement emailLoginInput;
+
+    @FindBy(how = How.XPATH, using = Locators.PASSWORD_LOGIN_INPUT)
+    private WebElement passwordLoginInput;
+
+    @FindBy(how = How.XPATH, using = Locators.LOGIN_BUTTON)
+    private WebElement loginButton;
+
+    @FindBy(how = How.XPATH, using = Locators.POST_LOGIN_POPUP_OK_BUTTON)
+    private WebElement postLoginPopupOkButton;
 
     public LoginPopup(WebDriver driver) {
         this.driver = driver;
@@ -73,7 +86,6 @@ public class LoginPopup {
     }
 
     public void enterEmailLoginInput(String email) {
-        log.info("enterEmailLoginInput : {}",email);
         wait.until(ExpectedConditions.elementToBeClickable(emailLoginInput));
         actions.moveToElement(emailLoginInput).click().perform();
         actions.sendKeys(emailLoginInput, email).build().perform();
@@ -89,6 +101,29 @@ public class LoginPopup {
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         actions.moveToElement(loginButton).click().perform();
     }
+
+    public void clickOnOkPopupButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(postLoginPopupOkButton));
+        actions.moveToElement(postLoginPopupOkButton).click().perform();
+    }
+
+//    public void enterEmailLoginInput(String email) {
+//        log.info("enterEmailLoginInput : {}",email);
+//        wait.until(ExpectedConditions.elementToBeClickable(emailLoginInput));
+//        actions.moveToElement(emailLoginInput).click().perform();
+//        actions.sendKeys(emailLoginInput, email).build().perform();
+//    }
+//
+//    public void enterPasswordLoginInput(String password) {
+//        wait.until(ExpectedConditions.elementToBeClickable(passwordLoginInput));
+//        actions.moveToElement(passwordLoginInput).click().perform();
+//        actions.sendKeys(passwordLoginInput, password).build().perform();
+//    }
+//
+//    public void clickOnLoginButton() {
+//        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+//        actions.moveToElement(loginButton).click().perform();
+//    }
 
     public String getMessageSuccessLoggedIn() {
         return messageSuccessLoggedIn.getText();

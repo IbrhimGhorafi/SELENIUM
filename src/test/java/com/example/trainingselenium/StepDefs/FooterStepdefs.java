@@ -4,51 +4,34 @@ import com.example.trainingselenium.Config.PageObjectInitialization;
 import com.example.trainingselenium.Config.WebDriverConfiguration;
 import com.example.trainingselenium.Pages.ChooseCountryAndCurrencyForShoppingPopup;
 import com.example.trainingselenium.Pages.CookiesPopup;
+import com.example.trainingselenium.Pages.Footer;
 import com.example.trainingselenium.Pages.HomePage;
-import com.example.trainingselenium.Pages.LoginPopup;
-import com.example.trainingselenium.Utils.Locators;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-@Slf4j
-public class LoginStepDefs {
+public class FooterStepdefs {
     private WebDriver driver;
     private HomePage homePage;
-    private LoginPopup loginPopup;
+    private Footer footerNewsLetter;
     private ChooseCountryAndCurrencyForShoppingPopup chooseCountryAndCurrencyForShoppingPopup;
     private CookiesPopup cookiesPopup;
-
 
     @Before
     public void setup() throws Exception {
         driver = WebDriverConfiguration.getDriver();
-        log.info("Setup Driver {}", driver);
         PageObjectInitialization pageObjectInitialization = new PageObjectInitialization(driver);
         homePage = pageObjectInitialization.getHomePage();
-        loginPopup = pageObjectInitialization.getLoginPopup();
+        footerNewsLetter = pageObjectInitialization.getFooterNewsLetter();
         cookiesPopup = pageObjectInitialization.getCookiesPopup();
         chooseCountryAndCurrencyForShoppingPopup = pageObjectInitialization.getChooseCountryAndCurrencyForShoppingPopup();
     }
 
-
-    @Given("the user is on the Fortnums and Mason homepage")
-    public void theUserIsOnTheFortnumsAndMasonHomepage() {
-        cookiesPopup.acceptAllCookies();
-        homePage.changeDestination();
-    }
-
-    @And("the user select the Non EU country switcher {} and {}")
-    public void theUserSelectTheNonEUCountrySwitcherCountryAndCurrency(String country, String currency) {
+    @And("the user select the EU country switcher {} and {}")
+    public void theUserSelectTheEUCountrySwitcherCountryAndCurrency(String country, String currency) {
         chooseCountryAndCurrencyForShoppingPopup.clickCountryDropdown();
         chooseCountryAndCurrencyForShoppingPopup.enterCountryInput(country);
         chooseCountryAndCurrencyForShoppingPopup.selectCountry(country);
@@ -57,31 +40,46 @@ public class LoginStepDefs {
         chooseCountryAndCurrencyForShoppingPopup.clickStartShoppingButton();
     }
 
-    @And("the user has accessed the login form")
-    public void theUserHasAccessedTheLoginForm() {
-        homePage.clickOnIconPersonButton();
+    @And("the user has accessed the sign-up bloc")
+    public void theUserHasAccessedTheSignUpBloc() {
+        footerNewsLetter.scrollDownToNewsletterEmailInput();
+    }
+
+    @When("the user inserts a valid email {} and attempts to subscribe")
+    public void theUserInsertsAValidEmailEmailAndAttemptsToSubscribe(String email) {
+        footerNewsLetter.enterNewsletterEmailInput(email);
+    }
+
+    @And("the user selects the country where they live {}")
+    public void theUserSelectsTheCountryWhereTheyLiveCountry(String country) {
+        footerNewsLetter.selectNewsletterCountryDropdown(country);
+    }
+
+    @And("the user selects the most exciting topic from the world of Fortnums {}")
+    public void theUserSelectsTheMostExcitingTopicFromTheWorldOfFortnumsFortnumTopic(String fortnumTopic) {
+        footerNewsLetter.selectNewsletterGeneralInterest(fortnumTopic);
+    }
+
+    @And("the user selects the Fortnums product {} they would take to a desert island")
+    public void theUserSelectsTheFortnumsProductProductTheyWouldTakeToADesertIsland(String product) {
+        footerNewsLetter.selectNewsletterProductInterest(product);
+    }
+
+    @And("the user attemps to subscribe")
+    public void theUserAttempsToSubscribe() {
+        footerNewsLetter.clickNewsletterSignUpButton();
+    }
+
+    @Then("the user is successfully subscribed")
+    public void theUserIsSuccessfullySubscribed() {
     }
 
     @After
-    public  void quitDriver() {
+    public void quitDriver(){
         if (driver != null) {
             driver.quit();
             driver = null;
         }
     }
 
-    @When("the user attempts to login with valide {} and {}")
-    public void theUserAttemptsToLoginWithValideEmailAndPassword(String email, String password) {
-        loginPopup.enterEmailLoginInput(email);
-        loginPopup.enterPasswordLoginInput(password);
-        loginPopup.clickOnLoginButton();
-    }
-
-
-    @Then("the user is successfully logged in")
-    public void theUserIsSuccessfullyLoggedIn() {
-        WebElement postLoginPopup = driver.findElement(By.xpath(Locators.POST_LOGIN_POPUP));
-        Assert.assertTrue(postLoginPopup.isDisplayed());
-        loginPopup.clickOnOkPopupButton();
-    }
 }
