@@ -42,6 +42,11 @@ public class WishlistPopup {
         js.executeScript("arguments[0].scrollIntoView(true);", viewWishlistButton);
         viewWishlistButton.click();
         //chi haja 2
+
+
+
+
+    // chi haja
 //          wait.until(ExpectedConditions.visibilityOf(wishlistPopUp));
 ////        wait.until(ExpectedConditions.elementToBeClickable(wishlistPopUpViewButton));
 ////        wait.until(ExpectedConditions.alertIsPresent());
