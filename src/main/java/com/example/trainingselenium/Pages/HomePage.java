@@ -65,6 +65,15 @@ public class HomePage {
     @FindBy(how = How.XPATH,using = Locators.ICON_BAG_IN_HEADER)
     private WebElement iconBag;
 
+    @FindBy(how = How.XPATH,using = Locators.HAMPERS_CATEGORY)
+    private WebElement hampersCategory;
+
+    @FindBy(how = How.XPATH,using = Locators.HAMPERS_CATEGORY_BIRTHDAYS)
+    private WebElement hampersCategoryBirthdays;
+
+    @FindBy(how = How.XPATH,using = Locators.WISHLIST_POPUP_PRODUCT_TITLE)
+    private WebElement wishlistPopupProductTitle;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new FluentWait<>(driver)
@@ -72,7 +81,18 @@ public class HomePage {
                 .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
         actions = new Actions(driver);
+//        WebElement we = driver.findElement(By.xpath(Locators.ICON_BAG_IN_HEADER));
+//        we.click();
+//        actions.moveToElement(we).doubleClick().perform();
     }
+
+    public void clickOnHampersBithdaysCategory() {
+        wait.until(ExpectedConditions.visibilityOf(hampersCategory));
+        actions.moveToElement(hampersCategory).perform();
+        wait.until(ExpectedConditions.visibilityOf(hampersCategoryBirthdays));
+        actions.moveToElement(hampersCategoryBirthdays).click().perform();
+    }
+
 
     public void scrollToSubscriptionSection() {
         wait.until(ExpectedConditions.visibilityOf(subscriptionEmailInput));

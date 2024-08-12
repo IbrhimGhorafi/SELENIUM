@@ -6,6 +6,7 @@ import com.example.trainingselenium.Pages.ChooseCountryAndCurrencyForShoppingPop
 import com.example.trainingselenium.Pages.CookiesPopup;
 import com.example.trainingselenium.Pages.HomePage;
 import com.example.trainingselenium.Pages.LoginPopup;
+import com.example.trainingselenium.Utils.Locators;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
@@ -15,7 +16,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 @Slf4j
 public class LoginStepDefs {
@@ -24,6 +27,7 @@ public class LoginStepDefs {
     private LoginPopup loginPopup;
     private ChooseCountryAndCurrencyForShoppingPopup chooseCountryAndCurrencyForShoppingPopup;
     private CookiesPopup cookiesPopup;
+
 
     @Before
     public void setup() throws Exception {
@@ -66,4 +70,18 @@ public class LoginStepDefs {
         }
     }
 
+    @When("the user attempts to login with valide {} and {}")
+    public void theUserAttemptsToLoginWithValideEmailAndPassword(String email, String password) {
+        loginPopup.enterEmailLoginInput(email);
+        loginPopup.enterPasswordLoginInput(password);
+        loginPopup.clickOnLoginButton();
+    }
+
+
+    @Then("the user is successfully logged in")
+    public void theUserIsSuccessfullyLoggedIn() {
+        WebElement postLoginPopup = driver.findElement(By.xpath(Locators.POST_LOGIN_POPUP));
+        Assert.assertTrue(postLoginPopup.isDisplayed());
+        loginPopup.clickOnOkPopupButton();
+    }
 }

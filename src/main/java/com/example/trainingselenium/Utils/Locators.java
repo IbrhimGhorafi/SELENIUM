@@ -49,4 +49,18 @@ public class Locators {
     public static final String NEWSLETTER_GENERAL_INTEREST = "//select[contains(@name,'general_interest')]";
     public static final String NEWSLETTER_PRODUCT_INTEREST = "//select[contains(@name,'product_interest')]";
     public static final String NEWSLETTER_SIGNUP_BUTTON = "//button[contains(@aria-label,'Sign Up')]";
+
+    public static final String PRODUCTS_LIST_PAGE = "//div[contains(@class,'product-list-page')]";
+    public static final String HAMPERS_CATEGORY = "//nav[contains(@class,'category-navigation')]/ul/li[2]";
+    public static final String HAMPERS_CATEGORY_BIRTHDAYS = "//nav[contains(@class,'category-navigation')]//a[contains(@href,'birthdays')]";
+    public static final String PRODUCT_DETAILS_PAGE = "//div[contains(@data-sku,'%s')]";
+    public static final String ALL_PRODUCTS = "//div[contains(@class,'product-list-page')]//div[attribute::data-sku]";
+    public static final String FIRST_PRODUCT = "//div[contains(@class,'product-list-page')]//div[attribute::data-sku][1]";
+    public static final String PRODUCT_DETAILS_PAGE_ADD_TO_WISHLIST = "//section[contains(@class,'add-to-cart-main')]//span[contains(@class,'add-wishlist')]";
+    public static final String WISHLIST_POPUP_PRODUCT_TITLE = "//span[contains(@class,'toast-product-details')]//div";
+    public static final String WISHLIST_POPUP = "//div[contains(@class,'p-toast-message-content')]";
+    public static final String WISHLIST_POPUP_VIEW_WISHLIST = "//div[contains(@class,'p-toast-message-content')]//button[@id='toast-view-wishlist-button']";
+    public static final String PDP_PRODUCT_TITLE = "//h1[contains(@data-cy,'ProductFullDetail-productName')]";
+    public static final String PLP_PRODUCT_TITLE = "//div[contains(@data-sku,'%s')]//div[contains(@class,'product-title')]//a";
+    public static final String WISHLIST_PRODUCT_TITLE = "//div[contains(@class,'h-screen bg-white transition-all')]//button[contains(@class,'text-left')]";
 }
