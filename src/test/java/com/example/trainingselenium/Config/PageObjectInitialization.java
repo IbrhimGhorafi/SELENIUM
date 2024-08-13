@@ -21,6 +21,7 @@ public class PageObjectInitialization {
     private final Footer footerNewsLetter;
     private final PLP plp;
     private final WishlistPopup wishlistPopup;
+    private final LoginPopUp2 loginPopUp2;
 
 
     public PageObjectInitialization(WebDriver driver) {
@@ -35,6 +36,7 @@ public class PageObjectInitialization {
         this.loginPopup = PageFactory.initElements(driver, LoginPopup.class);
         this.footerNewsLetter = PageFactory.initElements(driver, Footer.class);
         this.plp = PageFactory.initElements(driver, PLP.class);
+        this.loginPopUp2 = PageFactory.initElements(driver, LoginPopUp2.class);
     }
 
 }

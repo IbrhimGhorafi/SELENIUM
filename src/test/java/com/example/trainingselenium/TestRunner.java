@@ -11,7 +11,12 @@ import org.testng.annotations.Listeners;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com.example.trainingselenium.StepDefs"},
-        plugin = {"pretty", "html:rapport/ReportHTML/reporte.html", "json:rapport/cucumber.json"}
+        plugin = {
+                "pretty",
+                "html:rapport/ReportHTML/reporte.html",
+                "json:rapport/cucumber.json",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        }
 )
 @Listeners(CustomListener.class)
 public class TestRunner {

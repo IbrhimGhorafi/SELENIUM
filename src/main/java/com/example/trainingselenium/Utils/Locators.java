@@ -20,9 +20,9 @@ public class Locators {
     public static final String SELECT_COUNTRY_CURRENCY_SHOPPING = "//header//span[contains(text(),'Change')]";
     public static final String POPUP_MESSAGE_SUCCESS_OF_SUBSCRIBE = "//div[text()='Thank you for your subscription.']";
     public static final String ICON_PERSON_IN_HEADER = "//img[contains(@id,'account-link')]";
-    public static final String FORGET_PASSWORD_LINK = "//form//span[contains(text(),'Forgotten the password?')]";
-    public static final String EMAIL_RESET_PASSWORD_INPUT = "//div[contains(@class,'forgot-password-wrapper')]//input[contains(@name,'email')]";
-    public static final String RESET_PASSWORD_BUTTON = "//div[contains(@class,'forgot-password-wrapper')]//button[contains(@aria-label,'Reset Password')]";
+//    public static final String FORGET_PASSWORD_LINK = "//form//span[contains(text(),'Forgotten the password?')]";
+//    public static final String EMAIL_RESET_PASSWORD_INPUT = "//div[contains(@class,'forgot-password-wrapper')]//input[contains(@name,'email')]";
+//    public static final String RESET_PASSWORD_BUTTON = "//div[contains(@class,'forgot-password-wrapper')]//button[contains(@aria-label,'Reset Password')]";
 //    public static final String EMAIL_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'email')]";
 //    public static final String PASSWORD_LOGIN_INPUT = "//div[contains(@class,'login-form')]//input[contains(@name,'password')]";
 //    public static final String LOGIN_BUTTON = "//div[contains(@class,'login-form')]//button[contains(@aria-label,'Log in to your Account')]";
@@ -63,4 +63,19 @@ public class Locators {
     public static final String PDP_PRODUCT_TITLE = "//h1[contains(@data-cy,'ProductFullDetail-productName')]";
     public static final String PLP_PRODUCT_TITLE = "//div[contains(@data-sku,'%s')]//div[contains(@class,'product-title')]//a";
     public static final String WISHLIST_PRODUCT_TITLE = "//div[contains(@class,'h-screen bg-white transition-all')]//button[contains(@class,'text-left')]";
+
+    public static final String FORGOTTEN_THE_PASSWORD_LINK = "//span[contains(@class,'forgot-password')]";
+    public static final String RESET_PASSWORD_EMAIL_INPUT = "//input[contains(@name,'email')]";
+    public static final String RESET_PASSWORD_BUTTON = "//button[contains(@aria-label,'Reset Password')]";
+
+    public static final String YOPMAIL_EMAIL_INPUT = "//input[contains(@id,'login')]";
+    public static final String YOPMAIL_EMAIL_BUTTON = "//button[contains(@title,'Check Inbox @yopmail.com')]";
+    public static final String YOPMAIL_SET_NEW_PASSWORD_LINK = "//a[text()='Set a New Password']";
+    public static final String NEW_PASSWORD_INPUT = "//input[contains(@name,'password')]";
+    public static final String CONFIRM_NEW_PASSWORD_INPUT = "//input[contains(@name,'repeatPassword')]";
+    public static final String SAVE_NEW_PASSWORD_BUTTON = "//button[contains(@aria-label,'Save New password')]";
+    public static final String LOGIN_TOAST_POPUP = "//div[contains(@class,'toast-message-wrapper')]";
+    public static final String LOGIN_TOAST_POPUP_ICON = "//div[contains(@class,'toast-message-wrapper')]//span[contains(@class,'success-icon')]";
+
+
 }

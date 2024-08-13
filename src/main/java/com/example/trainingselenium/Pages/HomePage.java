@@ -74,6 +74,9 @@ public class HomePage {
     @FindBy(how = How.XPATH,using = Locators.WISHLIST_POPUP_PRODUCT_TITLE)
     private WebElement wishlistPopupProductTitle;
 
+    @FindBy(how = How.ID, id = "account-link")
+    private WebElement accountLink;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new FluentWait<>(driver)
@@ -84,6 +87,11 @@ public class HomePage {
 //        WebElement we = driver.findElement(By.xpath(Locators.ICON_BAG_IN_HEADER));
 //        we.click();
 //        actions.moveToElement(we).doubleClick().perform();
+    }
+
+    public void clickOnTheAccountIcon() {
+        wait.until(ExpectedConditions.elementToBeClickable(accountLink));
+        actions.moveToElement(accountLink).click().perform();
     }
 
     public void clickOnHampersBithdaysCategory() {
